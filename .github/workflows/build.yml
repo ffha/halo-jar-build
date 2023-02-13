@@ -60,7 +60,7 @@ jobs:
       - name: Build Halo
         working-directory: halo
         run: |
-          echo "version=2.2.0" > gradle.properties
+          sed -i 's/2.2.0-SNAPSHOT/2.2.0/g' gradle.properties
           cp -r ../console/dist src/main/resources/console
           ./gradlew clean build -x check -x jar
           
